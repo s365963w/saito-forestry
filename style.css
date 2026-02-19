@@ -1,0 +1,588 @@
+:root {
+    --primary-color: #2d1e12;
+    /* Deep Wood/Bark */
+    --secondary-color: #d4a373;
+    /* Warm Timber */
+    --accent-color: #06c755;
+    /* LINE Green */
+    --bg-light: #fdfdfb;
+    --text-color: #333;
+    --text-muted: #666;
+    --white: #ffffff;
+    --section-gap: 100px;
+    --container-width: 1100px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', 'Noto Sans JP', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-color);
+    line-height: 1.8;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.3s ease-in-out;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+/* Header */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.logo-group {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--primary-color);
+}
+
+.logo-sub {
+    font-size: 0.75rem;
+    color: var(--secondary-color);
+    font-weight: 500;
+    margin-top: 2px;
+}
+
+nav {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+nav a {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+nav a:hover {
+    color: var(--secondary-color);
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    font-weight: 700;
+    border-radius: 4px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.btn-wood {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.btn-line {
+    background-color: var(--accent-color);
+    color: var(--white);
+}
+
+.btn-line-small {
+    padding: 0.6rem 1.2rem;
+    background-color: var(--accent-color);
+    color: var(--white);
+    font-size: 0.8rem;
+}
+
+/* Hero Section */
+#hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: var(--white);
+    text-align: center;
+    overflow: hidden;
+}
+
+#hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('maki.png') center/cover no-repeat;
+    z-index: 0;
+    animation: heroZoom 10s ease-out forwards;
+}
+
+@keyframes heroZoom {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.1);
+    }
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.6) 100%);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 5%;
+}
+
+.hero-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(4.5rem, 15vw, 9rem);
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.hero-subtitle {
+    font-size: clamp(1.1rem, 3vw, 1.5rem);
+    font-weight: 500;
+    margin-bottom: 3.5rem;
+    opacity: 0;
+    letter-spacing: 0.1em;
+}
+
+.hero-cta {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+/* Concept Section */
+#concept {
+    padding: var(--section-gap) 0;
+}
+
+.concept-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.tag {
+    color: var(--secondary-color);
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    font-size: 0.8rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+#concept h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    line-height: 1.4;
+}
+
+.concept-text p {
+    color: var(--text-muted);
+}
+
+.concept-features {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.feature-item {
+    display: flex;
+    gap: 1.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.num {
+    font-size: 1.5rem;
+    font-family: 'Outfit', sans-serif;
+    color: var(--secondary-color);
+    font-weight: 700;
+}
+
+.feature-item h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.feature-item p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* Products Section */
+#products {
+    background-color: #f8f8f5;
+    padding: var(--section-gap) 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-header h2 {
+    font-size: 3rem;
+    font-family: 'Outfit';
+    letter-spacing: 0.1em;
+    color: var(--secondary-color);
+}
+
+.section-header p {
+    font-weight: 700;
+    margin-top: -0.5rem;
+}
+
+.product-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.product-card {
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+    display: flex;
+    flex-direction: column;
+}
+
+.product-img {
+    height: 300px;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+}
+
+.wood-placeholder-firewood {
+    background-image: url('maki.png');
+}
+
+.wood-placeholder-plank {
+    background-image: url('kirikabu.png');
+}
+
+.product-badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 0.4rem 1rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 20px;
+}
+
+.product-badge.secondary {
+    background: var(--secondary-color);
+}
+
+.product-info {
+    padding: 2.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.product-info h3 span {
+    font-size: 1rem;
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
+.product-info .description {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+.specs {
+    margin-bottom: 2rem;
+    background: #fcfcfc;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.specs li {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+}
+
+.specs li span {
+    color: var(--text-muted);
+}
+
+.btn-card {
+    margin-top: auto;
+    display: block;
+    text-align: center;
+    padding: 1rem;
+    background: var(--bg-light);
+    border: 2px solid var(--primary-color);
+    font-weight: 700;
+    border-radius: 4px;
+}
+
+.btn-card:hover {
+    background: var(--primary-color);
+    color: var(--white);
+}
+
+/* Flow Section */
+#flow {
+    padding: var(--section-gap) 0;
+    background: var(--primary-color);
+    color: var(--white);
+}
+
+.white h2 {
+    color: var(--secondary-color) !important;
+}
+
+.flow-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.step {
+    position: relative;
+    text-align: center;
+}
+
+.step-num {
+    font-family: 'Outfit';
+    font-size: 3rem;
+    font-weight: 700;
+    opacity: 0.2;
+    margin-bottom: -1rem;
+}
+
+.step-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--secondary-color);
+}
+
+.step-content p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* LINE Section */
+#line-benefit {
+    padding: var(--section-gap) 0;
+}
+
+.line-box {
+    background: #f0fdf4;
+    border: 1px solid rgba(6, 199, 85, 0.2);
+    border-radius: 20px;
+    padding: 4rem;
+    text-align: center;
+}
+
+.line-content h3 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+}
+
+.line-content p {
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+.btn-line-large {
+    background: var(--accent-color);
+    color: var(--white);
+    padding: 1.2rem 4rem;
+    font-size: 1.1rem;
+}
+
+/* Footer & Access */
+footer {
+    padding: 80px 0 40px;
+    background: #1a1512;
+    color: var(--white);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 60px;
+}
+
+.logo-footer {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.contact-details {
+    margin-top: 2rem;
+}
+
+.location-primary {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 1.5rem;
+    border-left: 4px solid var(--secondary-color);
+    margin-bottom: 2rem;
+    border-radius: 0 8px 8px 0;
+}
+
+.location-label {
+    font-weight: 700;
+    color: var(--secondary-color);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+}
+
+.location-primary .address {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.search-hint {
+    font-size: 0.8rem;
+    opacity: 0.5;
+}
+
+.footer-map iframe {
+    filter: grayscale(100%) contrast(1.1) brightness(0.9);
+}
+
+.location-secondary {
+    font-size: 0.85rem;
+    opacity: 0.6;
+    margin-top: 1.5rem;
+    padding-left: 0;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 40px;
+    text-align: center;
+    font-size: 0.8rem;
+    opacity: 0.5;
+}
+
+/* Animations */
+.animate-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.animate-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#hero .hero-title.visible {
+    transition-delay: 0.2s;
+}
+
+#hero .hero-subtitle.visible {
+    transition-delay: 0.5s;
+}
+
+#hero .hero-cta.visible {
+    transition-delay: 0.8s;
+}
+
+@media (max-width: 992px) {
+
+    .concept-grid,
+    .product-cards,
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .flow-steps {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    nav {
+        display: none;
+    }
+
+    .hero-title {
+        font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .flow-steps {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-cta {
+        flex-direction: column;
+    }
+}
