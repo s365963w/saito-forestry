@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>在庫板材一覧 | 株式会社齋藤林業</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;600;800&family=Zen+Kaku+Gothic+New:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0f0d09;--bark:#1e1409;--earth:#2c1f0e;--moss:#2a3420;--gold:#c8a050;--cream:#f5ead6;--sand:#d4b896;--muted:#7a6545;--line:#06c755}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bark);color:var(--cream);font-family:'Zen Kaku Gothic New',sans-serif;font-weight:300;line-height:1.8;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");opacity:.3;pointer-events:none;z-index:999}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 48px;background:linear-gradient(to bottom,rgba(15,13,9,.92),transparent);backdrop-filter:blur(4px)}
+.nav-logo{font-family:'Shippori Mincho B1',serif;font-size:15px;font-weight:600;color:var(--gold);letter-spacing:.1em;text-decoration:none}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{color:var(--sand);text-decoration:none;font-size:12px;letter-spacing:.2em;transition:color .3s}
+.nav-links a:hover,.nav-links a.active{color:var(--gold)}
+.nav-line{display:inline-flex;align-items:center;gap:6px;background:rgba(6,199,85,.15);border:1px solid rgba(6,199,85,.3);color:var(--line);padding:6px 16px;font-size:11px;letter-spacing:.15em;text-decoration:none}
+@media(max-width:768px){.nav-links{display:none}nav{padding:16px 24px}}
+
+/* HERO */
+.hero{padding:120px 48px 56px;background:var(--earth);position:relative;overflow:hidden}
+.hero-bg{position:absolute;right:-20px;top:50%;transform:translateY(-50%);font-family:'Shippori Mincho B1',serif;font-size:320px;font-weight:800;color:rgba(200,160,80,.04);pointer-events:none;user-select:none;line-height:1}
+.hero-vline{position:absolute;left:48px;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,transparent,rgba(200,160,80,.3),transparent)}
+.eyebrow{display:flex;align-items:center;gap:16px;margin-bottom:16px}
+.eyebrow-line{width:40px;height:1px;background:var(--gold)}
+.eyebrow span{font-size:11px;letter-spacing:.35em;color:var(--gold);text-transform:uppercase}
+.hero h1{font-family:'Shippori Mincho B1',serif;font-size:clamp(28px,4.5vw,48px);font-weight:800;color:var(--cream);margin-bottom:12px}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero-note{font-size:13px;color:var(--muted);line-height:2;max-width:560px}
+@media(max-width:768px){.hero{padding:100px 24px 48px}}
+
+/* FILTER */
+.filter-wrap{background:var(--earth);padding:32px 48px;border-bottom:1px solid rgba(200,160,80,.12);position:sticky;top:0;z-index:50;backdrop-filter:blur(8px)}
+@media(max-width:768px){.filter-wrap{padding:20px 24px;position:static}}
+.filter-inner{max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.filter-label{font-size:11px;letter-spacing:.2em;color:var(--gold);margin-right:4px;white-space:nowrap}
+.filter-group{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.filter-btn{font-size:12px;letter-spacing:.1em;padding:6px 14px;border:1px solid rgba(200,160,80,.2);color:var(--muted);background:transparent;cursor:pointer;transition:all .2s;font-family:'Zen Kaku Gothic New',sans-serif}
+.filter-btn:hover{border-color:rgba(200,160,80,.5);color:var(--sand)}
+.filter-btn.active{border-color:var(--gold);color:var(--gold);background:rgba(200,160,80,.08)}
+.filter-divider{width:1px;height:20px;background:rgba(200,160,80,.15);margin:0 8px}
+.filter-count{font-size:12px;color:var(--muted);margin-left:auto;white-space:nowrap}
+
+/* GRID */
+.stock-wrap{padding:56px 48px 96px;max-width:1300px;margin:0 auto}
+@media(max-width:768px){.stock-wrap{padding:40px 24px 72px}}
+.stock-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:2px}
+.stock-card{background:rgba(245,234,214,.04);border:1px solid rgba(200,160,80,.1);position:relative;transition:all .3s;overflow:hidden}
+.stock-card:hover{background:rgba(245,234,214,.07);border-color:rgba(200,160,80,.28);transform:translateY(-3px)}
+.stock-card.sold-out{opacity:.45;pointer-events:none}
+.sold-badge{position:absolute;top:16px;right:16px;background:rgba(15,13,9,.8);border:1px solid rgba(200,160,80,.3);font-size:10px;letter-spacing:.2em;color:var(--muted);padding:4px 10px;z-index:2}
+.rare-badge{position:absolute;top:16px;left:16px;font-size:10px;letter-spacing:.15em;padding:4px 10px;z-index:2}
+.rare-badge.r1{background:rgba(200,160,80,.15);border:1px solid rgba(200,160,80,.4);color:var(--gold)}
+.rare-badge.r2{background:rgba(232,93,58,.12);border:1px solid rgba(232,93,58,.4);color:#e8856a}
+
+/* 写真エリア */
+.card-photo{width:100%;aspect-ratio:4/3;background:var(--earth);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;position:relative;overflow:hidden}
+.card-photo img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.photo-placeholder-icon{font-size:40px;color:rgba(200,160,80,.2);line-height:1}
+.photo-placeholder-text{font-size:11px;letter-spacing:.15em;color:var(--muted)}
+
+/* カード本文 */
+.card-body{padding:24px}
+.card-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px}
+.card-name{font-family:'Shippori Mincho B1',serif;font-size:22px;font-weight:800;color:var(--cream);letter-spacing:.02em}
+.card-yomi{font-size:10px;color:var(--muted);letter-spacing:.12em;margin-top:2px}
+.card-price{font-family:'Shippori Mincho B1',serif;font-size:20px;font-weight:800;color:var(--gold);white-space:nowrap}
+.card-price-note{font-size:10px;color:var(--muted);letter-spacing:.1em;text-align:right;margin-top:1px}
+.card-specs{display:grid;grid-template-columns:1fr 1fr;gap:6px 16px;margin-bottom:16px}
+.spec-row{display:flex;gap:8px;align-items:baseline}
+.spec-key{font-size:10px;letter-spacing:.15em;color:var(--muted);flex-shrink:0;min-width:36px}
+.spec-val{font-size:13px;color:var(--sand)}
+.card-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:20px}
+.tag{font-size:10px;letter-spacing:.08em;padding:3px 9px;border:1px solid rgba(200,160,80,.18);color:var(--muted)}
+.tag.highlight{border-color:rgba(200,160,80,.45);color:var(--gold)}
+.card-note{font-size:12px;color:var(--muted);line-height:1.8;margin-bottom:20px;padding-top:14px;border-top:1px solid rgba(200,160,80,.1)}
+.btn-order{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px;background:rgba(6,199,85,.12);border:1px solid rgba(6,199,85,.3);color:var(--line);font-size:12px;letter-spacing:.2em;cursor:pointer;transition:all .3s;text-decoration:none;font-family:'Zen Kaku Gothic New',sans-serif}
+.btn-order:hover{background:rgba(6,199,85,.22);border-color:rgba(6,199,85,.5)}
+
+/* 空状態 */
+.empty-state{text-align:center;padding:80px 24px;display:none}
+.empty-state.show{display:block}
+.empty-title{font-family:'Shippori Mincho B1',serif;font-size:20px;color:var(--sand);margin-bottom:12px}
+.empty-sub{font-size:13px;color:var(--muted)}
+
+/* CTA下部 */
+.bottom-cta{margin-top:64px;padding:40px;background:rgba(200,160,80,.05);border:1px solid rgba(200,160,80,.15);text-align:center}
+.bottom-cta-title{font-family:'Shippori Mincho B1',serif;font-size:18px;color:var(--cream);margin-bottom:10px}
+.bottom-cta-sub{font-size:13px;color:var(--muted);margin-bottom:24px;line-height:1.9}
+.btn-p{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--gold),#a07030);color:var(--ink);text-decoration:none;font-family:'Shippori Mincho B1',serif;font-size:13px;font-weight:600;letter-spacing:.15em;padding:14px 32px;transition:all .3s}
+.btn-p:hover{transform:translateY(-2px)}
+
+footer{background:var(--ink);padding:40px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.footer-logo{font-family:'Shippori Mincho B1',serif;font-size:14px;color:var(--gold);letter-spacing:.1em}
+.footer-copy{font-size:11px;color:var(--muted);letter-spacing:.1em}
+@media(max-width:768px){footer{padding:32px 24px}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">齋藤林業</a>
+  <ul class="nav-links">
+    <li><a href="/products/muku/">無垢材を注文</a></li>
+    <li><a href="/products/stock/" class="active">在庫板材</a></li>
+    <li><a href="/products/maki/">薪</a></li>
+    <li><a href="/about/">会社紹介</a></li>
+  </ul>
+  <a href="https://line.me/R/ti/p/@YOUR_LINE_ID" class="nav-line">LINEで相談</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-vline"></div>
+  <div class="hero-bg">材</div>
+  <div class="eyebrow"><div class="eyebrow-line"></div><span>Stock</span></div>
+  <h1>在庫板材一覧<br><em>乾燥済み・即納可</em></h1>
+  <p class="hero-note">土場で乾燥管理済みの板材を掲載しています。写真・サイズ・乾燥状態をご確認の上、LINEよりご注文ください。在庫は随時更新されます。</p>
+</section>
+
+<!-- FILTER -->
+<div class="filter-wrap">
+  <div class="filter-inner">
+    <span class="filter-label">樹種</span>
+    <div class="filter-group" id="species-filter">
+      <button class="filter-btn active" data-filter="species" data-value="all">すべて</button>
+      <button class="filter-btn" data-filter="species" data-value="ミズナラ">ミズナラ</button>
+      <button class="filter-btn" data-filter="species" data-value="ケヤキ">ケヤキ</button>
+      <button class="filter-btn" data-filter="species" data-value="クルミ">クルミ</button>
+      <button class="filter-btn" data-filter="species" data-value="ヤマザクラ">ヤマザクラ</button>
+      <button class="filter-btn" data-filter="species" data-value="アカマツ">アカマツ</button>
+      <button class="filter-btn" data-filter="species" data-value="クロガキ">クロガキ</button>
+    </div>
+    <div class="filter-divider"></div>
+    <span class="filter-label">価格帯</span>
+    <div class="filter-group" id="price-filter">
+      <button class="filter-btn active" data-filter="price" data-value="all">すべて</button>
+      <button class="filter-btn" data-filter="price" data-value="under20">〜¥20,000</button>
+      <button class="filter-btn" data-filter="price" data-value="20to50">¥20,000〜¥50,000</button>
+      <button class="filter-btn" data-filter="price" data-value="over50">¥50,000〜</button>
+    </div>
+    <span class="filter-count" id="filter-count">全8点</span>
+  </div>
+</div>
+
+<!-- GRID -->
+<div class="stock-wrap">
+  <div class="stock-grid" id="stock-grid"></div>
+  <div class="empty-state" id="empty-state">
+    <div class="empty-title">該当する在庫がありません</div>
+    <div class="empty-sub">別の条件でお探しいただくか、LINEにてご相談ください。</div>
+  </div>
+  <div class="bottom-cta">
+    <div class="bottom-cta-title">お探しの樹種・サイズがない場合</div>
+    <div class="bottom-cta-sub">在庫にない樹種・サイズはオーダー販売でご対応できます。<br>AIコンシェルジュで樹種と価格をご確認ください。</div>
+    <a href="/products/muku/" class="btn-p">AIで木材をオーダーする</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo">株式会社齋藤林業</div>
+  <div class="footer-copy">© 2026 SAITO FORESTRY Co., Ltd. All rights reserved.</div>
+</footer>
+
+<script>
+const LINE_URL = 'https://line.me/R/ti/p/@YOUR_LINE_ID';
+
+const STOCK = [
+  {id:'ST-001',species:'ミズナラ',yomi:'みずなら',length:1500,width:280,thickness:40,drying:'6ヶ月乾燥',grade:'上小節',qty:2,price:38000,rare:1,tags:['虎斑あり','テーブル向き','乾燥済み'],note:'きれいな虎斑（とらふ）が全面に出ています。ダイニングテーブルや棚板に最適。'},
+  {id:'ST-002',species:'ケヤキ',yomi:'けやき',length:1800,width:320,thickness:50,drying:'1年乾燥',grade:'節あり',qty:1,price:65000,rare:1,tags:['力強い杢目','カウンター向き','一枚板'],note:'力強い木目が特徴のケヤキ一枚板。飲食店カウンターや玄関框に。'},
+  {id:'ST-003',species:'クルミ',yomi:'くるみ',length:1200,width:240,thickness:35,drying:'6ヶ月乾燥',grade:'上小節',qty:3,price:28000,rare:1,tags:['深いブラウン','家具・工芸向き','加工しやすい'],note:'チョコレートブラウンの落ち着いた色味。加工性が高く家具・工芸に人気。'},
+  {id:'ST-004',species:'ヤマザクラ',yomi:'やまざくら',length:1000,width:200,thickness:30,drying:'3ヶ月乾燥',grade:'無節',qty:2,price:22000,rare:1,tags:['ピンク〜飴色','楽器・内装向き','緻密な木目'],note:'淡いピンクから飴色への経年変化が楽しめます。内装材・小物作りに。'},
+  {id:'ST-005',species:'アカマツ',yomi:'あかまつ',length:2000,width:180,thickness:30,drying:'自然乾燥',grade:'節あり',qty:5,price:8000,rare:0,tags:['力強い節あり木目','看板向き','DIY'],note:'力強い節のある赤みが特徴。看板材・DIY板材として使いやすいサイズ。'},
+  {id:'ST-006',species:'クロガキ',yomi:'くろがき',length:600,width:150,thickness:25,drying:'1年乾燥',grade:'無節',qty:1,price:120000,rare:2,tags:['漆黒の縞模様','最高級銘木','工芸・茶道具'],note:'万本に一本の確率で出現する幻の銘木。漆黒の縞が格調高い工芸品をつくります。'},
+  {id:'ST-007',species:'ミズナラ',yomi:'みずなら',length:800,width:220,thickness:30,drying:'6ヶ月乾燥',grade:'節あり',qty:0,price:18000,rare:0,tags:['硬質','フローリング向き'],note:'（売り切れ）次回入荷はLINEにてご案内します。'},
+  {id:'ST-008',species:'クルミ',yomi:'くるみ',length:1500,width:350,thickness:45,drying:'1年乾燥',grade:'上小節',qty:1,price:55000,rare:1,tags:['幅広一枚板','テーブル天板','乾燥済み'],note:'幅350mmの広めのクルミ一枚板。ダイニングテーブル天板として理想的なサイズ。'},
+];
+
+let activeSpecies = 'all';
+let activePrice = 'all';
+
+function priceInRange(price, range) {
+  if(range === 'all') return true;
+  if(range === 'under20') return price < 20000;
+  if(range === '20to50') return price >= 20000 && price <= 50000;
+  if(range === 'over50') return price > 50000;
+  return true;
+}
+
+function render() {
+  const grid = document.getElementById('stock-grid');
+  const empty = document.getElementById('empty-state');
+  const count = document.getElementById('filter-count');
+
+  const filtered = STOCK.filter(s => {
+    const speciesOk = activeSpecies === 'all' || s.species === activeSpecies;
+    const priceOk = priceInRange(s.price, activePrice);
+    return speciesOk && priceOk;
+  });
+
+  count.textContent = `${filtered.length}点`;
+
+  if(filtered.length === 0) {
+    grid.innerHTML = '';
+    empty.classList.add('show');
+    return;
+  }
+  empty.classList.remove('show');
+
+  grid.innerHTML = filtered.map(s => {
+    const soldOut = s.qty === 0;
+    const rareClass = s.rare === 2 ? 'r2' : s.rare === 1 ? 'r1' : '';
+    const rareName = s.rare === 2 ? '★★ 極希少材' : s.rare === 1 ? '★ 希少材' : '';
+    const lineMsg = encodeURIComponent(`【在庫板材の注文】\n商品ID：${s.id}\n樹種：${s.species}\nサイズ：${s.length}×${s.width}×${s.thickness}mm\n乾燥：${s.drying}\nグレード：${s.grade}\n価格：¥${s.price.toLocaleString()}（税込・送料別）`);
+
+    return `
+    <div class="stock-card${soldOut ? ' sold-out' : ''}">
+      ${soldOut ? '<div class="sold-badge">SOLD OUT</div>' : ''}
+      ${rareName ? `<div class="rare-badge ${rareClass}">${rareName}</div>` : ''}
+      <div class="card-photo">
+        <div class="photo-placeholder-icon">🌲</div>
+        <div class="photo-placeholder-text">写真準備中 / ${s.id}</div>
+      </div>
+      <div class="card-body">
+        <div class="card-header">
+          <div>
+            <div class="card-name">${s.species}</div>
+            <div class="card-yomi">${s.yomi}</div>
+          </div>
+          <div>
+            <div class="card-price">¥${s.price.toLocaleString()}</div>
+            <div class="card-price-note">税込・送料別</div>
+          </div>
+        </div>
+        <div class="card-specs">
+          <div class="spec-row"><span class="spec-key">サイズ</span><span class="spec-val">${s.length}×${s.width}×${s.thickness}mm</span></div>
+          <div class="spec-row"><span class="spec-key">乾燥</span><span class="spec-val">${s.drying}</span></div>
+          <div class="spec-row"><span class="spec-key">グレード</span><span class="spec-val">${s.grade}</span></div>
+          <div class="spec-row"><span class="spec-key">在庫</span><span class="spec-val">${soldOut ? '売り切れ' : s.qty+'枚'}</span></div>
+        </div>
+        <div class="card-tags">${s.tags.map(t => `<span class="tag${s.rare > 0 ? ' highlight' : ''}">${t}</span>`).join('')}</div>
+        ${s.note ? `<div class="card-note">${s.note}</div>` : ''}
+        ${!soldOut ? `<a href="${LINE_URL}?text=${lineMsg}" class="btn-order" target="_blank">LINEでこの在庫を注文する</a>` : ''}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const filter = btn.dataset.filter;
+    const value = btn.dataset.value;
+    document.querySelectorAll(`[data-filter="${filter}"]`).forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    if(filter === 'species') activeSpecies = value;
+    if(filter === 'price') activePrice = value;
+    render();
+  });
+});
+
+render();
+</script>
+</body>
+</html>

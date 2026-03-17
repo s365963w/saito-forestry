@@ -1,239 +1,318 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAITO FORESTRY | 岩手県一関市の薪販売・一枚板直売</title>
-    <meta name="description"
-        content="岩手県一関市狐禅寺を拠点とする薪販売・一枚板直売のSAITO FORESTRY。林業のプロが厳選した高品質な乾燥薪を、中間コストを排除した圧倒的な直販価格で提供します。">
-    <meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>齋藤林業株式会社 | 岩手・東北の国産無垢材 産地直販</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;600;800&family=Zen+Kaku+Gothic+New:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0f0d09;--bark:#1e1409;--earth:#2c1f0e;--moss:#2a3420;--gold:#c8a050;--gold-lt:#e8c87a;--cream:#f5ead6;--sand:#d4b896;--muted:#7a6545;--rare1:#c8a050;--rare2:#e85d3a}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bark);color:var(--cream);font-family:'Zen Kaku Gothic New',sans-serif;font-weight:300;line-height:1.8;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");opacity:.3;pointer-events:none;z-index:999}
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Outfit:wght@300;400;700&family=Oswald:wght@700&display=swap"
-        rel="stylesheet">
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 48px;background:linear-gradient(to bottom,rgba(15,13,9,.92),transparent);backdrop-filter:blur(4px)}
+.nav-logo{font-family:'Shippori Mincho B1',serif;font-size:15px;font-weight:600;color:var(--gold);letter-spacing:.1em;text-decoration:none}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{color:var(--sand);text-decoration:none;font-size:12px;letter-spacing:.2em;transition:color .3s}
+.nav-links a:hover{color:var(--gold)}
+.nav-line{display:inline-flex;align-items:center;gap:6px;background:rgba(6,199,85,.15);border:1px solid rgba(6,199,85,.3);color:#06c755;padding:6px 16px;font-size:11px;letter-spacing:.15em;text-decoration:none;transition:all .3s}
+.nav-line:hover{background:rgba(6,199,85,.25);color:#06c755}
+@media(max-width:768px){.nav-links{display:none}nav{padding:16px 24px}}
 
-    <!-- SEO: JSON-LD -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "SAITO FORESTRY (株式会社 齋藤林業)",
-      "description": "岩手県一関市狐禅寺での薪販売・一枚板直売。林業のプロが厳選した広葉樹薪を、引き取り・自社配送でお届け。",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "狐禅寺",
-        "addressLocality": "一関市",
-        "addressRegion": "岩手県",
-        "postalCode": "021-0002",
-        "addressCountry": "JP"
-      },
-      "url": "https://saito-forestry.github.io/",
-      "priceRange": "¥1,000 - ¥200,000"
-    }
-    </script>
+/* ── HERO ── */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;padding:120px 48px 80px}
+.hero-rings{position:absolute;right:-10%;top:50%;transform:translateY(-50%);width:700px;height:700px;opacity:.07}
+.hero-rings circle{fill:none;stroke:var(--gold)}
+.hero-vline{position:absolute;left:48px;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,transparent,rgba(200,160,80,.3),transparent)}
+.hero-content{max-width:700px;position:relative;z-index:2;animation:heroIn 1.2s ease both}
+@keyframes heroIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.eyebrow{display:flex;align-items:center;gap:16px;margin-bottom:28px}
+.eyebrow-line{width:40px;height:1px;background:var(--gold)}
+.eyebrow span{font-size:11px;letter-spacing:.35em;color:var(--gold);text-transform:uppercase}
+.hero-title{font-family:'Shippori Mincho B1',serif;font-size:clamp(38px,5.5vw,66px);font-weight:800;line-height:1.2;color:var(--cream);margin-bottom:12px}
+.hero-title em{font-style:normal;color:var(--gold)}
+.hero-sub{font-family:'Shippori Mincho B1',serif;font-size:clamp(14px,2vw,17px);color:var(--sand);letter-spacing:.1em;margin-bottom:28px;line-height:2}
+.hero-desc{font-size:14px;color:var(--muted);max-width:460px;line-height:2.1;margin-bottom:48px}
+.cta-row{display:flex;gap:16px;flex-wrap:wrap}
+.btn-p{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--gold),#a07030);color:var(--ink);text-decoration:none;font-family:'Shippori Mincho B1',serif;font-size:14px;font-weight:600;letter-spacing:.15em;padding:16px 36px;transition:all .3s}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(200,160,80,.35)}
+.btn-s{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(200,160,80,.35);color:var(--sand);text-decoration:none;font-size:13px;letter-spacing:.15em;padding:16px 32px;transition:all .3s}
+.btn-s:hover{border-color:var(--gold);color:var(--gold)}
+.hero-stats{position:absolute;right:80px;bottom:80px;display:flex;gap:48px;z-index:2;animation:heroIn 1.2s ease .3s both}
+.stat-num{font-family:'Shippori Mincho B1',serif;font-size:36px;font-weight:800;color:var(--gold);line-height:1;margin-bottom:6px}
+.stat-label{font-size:11px;letter-spacing:.15em;color:var(--muted)}
+@media(max-width:768px){.hero{padding:100px 24px 80px}.hero-stats{display:none}}
 
-    <link rel="stylesheet" href="style.css">
+/* ── SECTION SHARED ── */
+section{padding:100px 48px}
+.sec-en{font-size:11px;letter-spacing:.35em;color:var(--gold);text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:14px}
+.sec-en::before{content:'';display:block;width:32px;height:1px;background:var(--gold)}
+.sec-title{font-family:'Shippori Mincho B1',serif;font-size:clamp(24px,3.5vw,36px);font-weight:800;color:var(--cream);letter-spacing:.03em;line-height:1.4;margin-bottom:48px}
+@media(max-width:768px){section{padding:64px 24px}}
+
+/* ── SERVICES（3事業の導線カード）── */
+.services{background:var(--earth)}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;max-width:1100px}
+.svc-card{position:relative;padding:48px 36px;background:rgba(245,234,214,.03);border:1px solid rgba(200,160,80,.1);text-decoration:none;transition:all .35s;overflow:hidden;display:block}
+.svc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(to right,transparent,var(--gold),transparent);opacity:0;transition:opacity .3s}
+.svc-card:hover{background:rgba(245,234,214,.07);border-color:rgba(200,160,80,.3);transform:translateY(-4px)}
+.svc-card:hover::before{opacity:1}
+.svc-card.main{background:rgba(200,160,80,.07);border-color:rgba(200,160,80,.3)}
+.svc-card.main::before{opacity:.5}
+.svc-badge{display:inline-block;font-size:10px;letter-spacing:.2em;padding:3px 10px;border:1px solid rgba(200,160,80,.4);color:var(--gold);margin-bottom:20px}
+.svc-badge.new{border-color:rgba(232,93,58,.5);color:var(--rare2)}
+.svc-num{font-family:'Shippori Mincho B1',serif;font-size:48px;font-weight:800;color:rgba(200,160,80,.15);line-height:1;margin-bottom:16px}
+.svc-title{font-family:'Shippori Mincho B1',serif;font-size:22px;font-weight:800;color:var(--cream);margin-bottom:12px;letter-spacing:.03em}
+.svc-body{font-size:13px;color:var(--sand);line-height:2;margin-bottom:24px}
+.svc-link{font-size:12px;letter-spacing:.2em;color:var(--gold);display:flex;align-items:center;gap:8px}
+.svc-link::after{content:'→';transition:transform .3s}
+.svc-card:hover .svc-link::after{transform:translateX(4px)}
+@media(max-width:768px){.svc-grid{grid-template-columns:1fr}}
+
+/* ── PHILOSOPHY ── */
+.philosophy{background:var(--moss);position:relative;overflow:hidden}
+.philosophy::before{content:'林';position:absolute;right:-40px;top:-40px;font-family:'Shippori Mincho B1',serif;font-size:360px;font-weight:800;color:rgba(200,160,80,.04);line-height:1;pointer-events:none}
+.phil-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;max-width:1100px}
+.phil-lead{font-family:'Shippori Mincho B1',serif;font-size:clamp(17px,2.5vw,24px);font-weight:600;color:var(--cream);line-height:1.9;margin-bottom:24px}
+.phil-body{font-size:14px;color:var(--sand);line-height:2.2}
+.pillars{display:flex;flex-direction:column;gap:24px;padding-top:12px}
+.pillar{display:flex;gap:20px;align-items:flex-start;padding:22px;background:rgba(245,234,214,.04);border-left:2px solid var(--gold);transition:background .3s}
+.pillar:hover{background:rgba(245,234,214,.07)}
+.p-num{font-family:'Shippori Mincho B1',serif;font-size:28px;font-weight:800;color:rgba(200,160,80,.3);line-height:1;flex-shrink:0;width:36px}
+.p-title{font-family:'Shippori Mincho B1',serif;font-size:15px;font-weight:600;color:var(--gold);margin-bottom:5px}
+.p-body{font-size:13px;color:var(--sand);line-height:1.9}
+@media(max-width:768px){.phil-grid{grid-template-columns:1fr;gap:48px}}
+
+/* ── LINE CTA ── */
+.line-cta{background:var(--earth);text-align:center;padding:80px 48px}
+.line-cta-title{font-family:'Shippori Mincho B1',serif;font-size:clamp(20px,3vw,30px);font-weight:800;color:var(--cream);margin-bottom:14px;letter-spacing:.04em}
+.line-cta-sub{font-size:14px;color:var(--muted);margin-bottom:40px;line-height:2}
+.btn-line{display:inline-flex;align-items:center;gap:12px;background:#06c755;color:#fff;text-decoration:none;font-family:'Shippori Mincho B1',serif;font-size:15px;font-weight:600;letter-spacing:.15em;padding:18px 48px;transition:all .3s}
+.btn-line:hover{background:#05a847;transform:translateY(-2px)}
+.btn-line-icon{width:22px;height:22px;fill:#fff}
+
+/* ── TRUST ── */
+.trust{background:var(--bark)}
+.trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;max-width:1100px}
+.trust-card{padding:32px 24px;background:rgba(245,234,214,.03);border:1px solid rgba(200,160,80,.08);text-align:center}
+.trust-num{font-family:'Shippori Mincho B1',serif;font-size:40px;font-weight:800;color:var(--gold);line-height:1;margin-bottom:8px}
+.trust-unit{font-size:14px;color:var(--gold)}
+.trust-label{font-size:12px;color:var(--muted);letter-spacing:.1em;margin-top:4px}
+@media(max-width:768px){.trust-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* ── ACCESS ── */
+.access{background:var(--moss)}
+.access-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;max-width:1000px;align-items:start}
+.access-item{padding:28px 32px;background:rgba(245,234,214,.04);border:1px solid rgba(200,160,80,.12)}
+.access-tag{font-size:10px;letter-spacing:.25em;color:var(--gold);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.access-tag::before{content:'';display:block;width:16px;height:1px;background:var(--gold)}
+.access-name{font-family:'Shippori Mincho B1',serif;font-size:16px;font-weight:600;color:var(--cream);margin-bottom:12px}
+.access-detail{font-size:13px;color:var(--sand);line-height:2}
+.access-note{font-size:12px;color:var(--muted);margin-top:10px;line-height:1.8}
+@media(max-width:768px){.access-grid{grid-template-columns:1fr}}
+
+/* ── FOOTER ── */
+footer{background:var(--ink);padding:40px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.footer-logo{font-family:'Shippori Mincho B1',serif;font-size:14px;color:var(--gold);letter-spacing:.1em}
+.footer-links{display:flex;gap:24px;list-style:none}
+.footer-links a{font-size:11px;color:var(--muted);text-decoration:none;letter-spacing:.1em;transition:color .3s}
+.footer-links a:hover{color:var(--sand)}
+.footer-copy{font-size:11px;color:var(--muted);letter-spacing:.1em}
+@media(max-width:768px){footer{padding:32px 24px}.footer-links{display:none}}
+</style>
 </head>
-
 <body>
-    <header id="header">
-        <div class="container">
-            <div class="logo-group">
-                <span class="logo">齋藤林業</span>
-                <p class="logo-sub">SAITO FORESTRY</p>
-            </div>
-            <nav>
-                <a href="#products">商品案内</a>
-                <a href="#flow">購入の流れ</a>
-                <a href="#access">アクセス</a>
-                <a href="https://line.me/R/ti/p/@YOUR_LINE_ID" class="btn btn-line-small"
-                    target="_blank">LINEでお問い合わせ</a>
-            </nav>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">齋藤林業</a>
+  <ul class="nav-links">
+    <li><a href="/products/muku/">無垢材を注文</a></li>
+    <li><a href="/products/stock/">在庫板材</a></li>
+    <li><a href="/products/maki/">薪</a></li>
+    <li><a href="/about/">会社紹介</a></li>
+  </ul>
+  <a href="#line" class="nav-line">LINEで相談</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-vline"></div>
+  <svg class="hero-rings" viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="350" cy="350" r="300"/><circle cx="350" cy="350" r="240"/>
+    <circle cx="350" cy="350" r="180"/><circle cx="350" cy="350" r="120"/>
+  </svg>
+  <div class="hero-content">
+    <div class="eyebrow"><div class="eyebrow-line"></div><span>Saito Forestry</span></div>
+    <h1 class="hero-title">
+      岩手の山から、<br>
+      <em>直接届ける</em>一枚。
+    </h1>
+    <p class="hero-sub">産地直結 × 25年の目利き × 明瞭会計</p>
+    <p class="hero-desc">薪になっていた木が、一枚板になれば数倍〜数十倍の価値になる。齋藤林業は伐採から製材・乾燥まで一貫し、中間マージンなしで国産無垢材をお届けします。</p>
+    <div class="cta-row">
+      <a href="/products/muku/" class="btn-p">AIで木材を選ぶ</a>
+      <a href="/products/stock/" class="btn-s">在庫板材を見る</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div>
+      <div class="stat-num">25<span style="font-size:18px">年</span></div>
+      <div class="stat-label">林業現場の経験</div>
+    </div>
+    <div>
+      <div class="stat-num">15<span style="font-size:18px">種</span></div>
+      <div class="stat-label">取扱樹種</div>
+    </div>
+    <div>
+      <div class="stat-num">100<span style="font-size:18px">%</span></div>
+      <div class="stat-label">国産材</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services">
+  <div class="sec-en">Services</div>
+  <h2 class="sec-title">3つの買い方</h2>
+  <div class="svc-grid">
+    <a href="/products/muku/" class="svc-card main">
+      <div class="svc-badge new">AIコンシェルジュ</div>
+      <div class="svc-num">01</div>
+      <div class="svc-title">無垢材をオーダー</div>
+      <div class="svc-body">用途・サイズ・樹種をAIが提案。受注後に製材・乾燥するため、新鮮な状態でお届けします。専門知識不要で納得いく一枚が選べます。</div>
+      <div class="svc-link">オーダーを始める</div>
+    </a>
+    <a href="/products/stock/" class="svc-card">
+      <div class="svc-badge">在庫あり・即納</div>
+      <div class="svc-num">02</div>
+      <div class="svc-title">在庫板材から選ぶ</div>
+      <div class="svc-body">土場で乾燥管理済みの板材を写真付きで掲載。樹種・サイズ・木目を確認して今すぐ注文できます。クルミ・ミズナラ・ケヤキなど随時更新。</div>
+      <div class="svc-link">在庫を見る</div>
+    </a>
+    <a href="/products/maki/" class="svc-card">
+      <div class="svc-badge">引き取り限定</div>
+      <div class="svc-num">03</div>
+      <div class="svc-title">薪を購入する</div>
+      <div class="svc-body">広葉樹100%・1年以上の自然乾燥薪。棚（180×180×35cm）単位で販売。現地引き取りのみ。在庫・日程はLINEでご確認ください。</div>
+      <div class="svc-link">薪について見る</div>
+    </a>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section class="philosophy">
+  <div class="sec-en">Philosophy</div>
+  <h2 class="sec-title">なぜ、直販なのか。</h2>
+  <div class="phil-grid">
+    <div>
+      <p class="phil-lead">
+        25年、岩手の山で<br>
+        木と向き合い続けた。<br>
+        その目利きを、<br>直接届ける。
+      </p>
+      <p class="phil-body">伐採・搬出から製材・乾燥まで一貫して手がけることで、素材の来歴を完全に把握できます。どの山から来た木か、どう乾燥させたか——全てをオープンにする明瞭会計が、齋藤林業の約束です。</p>
+    </div>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="p-num">1</div>
+        <div>
+          <div class="p-title">25年の現場目利き</div>
+          <div class="p-body">岩手県伐木技術指導員（第1期認定・番号1-4）として、丸太の段階から素材の価値を見極めます。</div>
         </div>
-    </header>
-
-    <section id="hero">
-        <div class="hero-content">
-            <h1 class="hero-title animate-in">SAITO FORESTRY</h1>
-            <p class="hero-subtitle animate-in">素材の価値を、ダイレクトに。</p>
-            <div class="hero-cta animate-in">
-                <a href="#products" class="btn btn-wood">商品を見る</a>
-                <a href="https://line.me/R/ti/p/@YOUR_LINE_ID" class="btn btn-line" target="_blank">公式LINE登録</a>
-            </div>
+      </div>
+      <div class="pillar">
+        <div class="p-num">2</div>
+        <div>
+          <div class="p-title">産地直結・明瞭会計</div>
+          <div class="p-body">中間業者を介さない産地直販。樹種・乾燥状態・価格根拠をすべて開示します。</div>
         </div>
-        <div class="hero-overlay"></div>
-    </section>
-
-    <section id="concept">
-        <div class="container">
-            <div class="concept-grid">
-                <div class="concept-text">
-                    <span class="tag">CONCEPT</span>
-                    <h2>究極のローコスト、<br>最高峰の品質。</h2>
-                    <p>
-                        私たちは、自社で発生する原木を直接活用し、仕入れ・製造コストを極限まで削減しました。<br>
-                        有料のシステムや発送業者を介さず、引き取り・自社配達に特化することで、
-                        林業本来の「素材の強さ」を100%の利益率とともに、お値打ち価格で還元します。
-                    </p>
-                </div>
-                <div class="concept-features">
-                    <div class="feature-item">
-                        <span class="num">01</span>
-                        <h3>自社原木100%</h3>
-                        <p>仕入れゼロ。素材を知り尽くしたプロが選別。</p>
-                    </div>
-                    <div class="feature-item">
-                        <span class="num">02</span>
-                        <h3>デジタル・ミニマリズム</h3>
-                        <p>余計なコストを削ぎ落とし、価格を優先。</p>
-                    </div>
-                    <div class="feature-item">
-                        <span class="num">03</span>
-                        <h3>地産地消・直販</h3>
-                        <p>一関の拠点で対面販売。安心と信頼の絆。</p>
-                    </div>
-                </div>
-            </div>
+      </div>
+      <div class="pillar">
+        <div class="p-num">3</div>
+        <div>
+          <div class="p-title">合法木材供給事業者</div>
+          <div class="p-body">クリーンウッド法に基づく認定事業者（G-135）。産地・合法性が証明できる木材のみを供給します。</div>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section id="products">
-        <div class="container">
-            <div class="section-header">
-                <h2>PRODUCTS</h2>
-                <p>現在取り扱いの素材</p>
-            </div>
+<!-- TRUST -->
+<section class="trust">
+  <div class="sec-en">Credentials</div>
+  <h2 class="sec-title">信頼の根拠</h2>
+  <div class="trust-grid">
+    <div class="trust-card">
+      <div class="trust-num">25<span class="trust-unit">年</span></div>
+      <div class="trust-label">林業現場の経験</div>
+    </div>
+    <div class="trust-card">
+      <div class="trust-num">15<span class="trust-unit">種</span></div>
+      <div class="trust-label">取扱樹種</div>
+    </div>
+    <div class="trust-card">
+      <div class="trust-num" style="font-size:24px">1-4</div>
+      <div class="trust-label">伐木技術指導員<br>県内第1期認定番号</div>
+    </div>
+    <div class="trust-card">
+      <div class="trust-num" style="font-size:22px">G-135</div>
+      <div class="trust-label">合法木材<br>供給事業者認定番号</div>
+    </div>
+  </div>
+</section>
 
-            <div class="product-cards">
-                <!-- Product 1: Firewood -->
-                <div class="product-card">
-                    <div class="product-img wood-placeholder-firewood">
-                        <!-- Placeholder image or actual src if you have one -->
-                        <div class="product-badge">販売中</div>
-                    </div>
-                    <div class="product-info">
-                        <h3>高品質乾燥薪</h3>
-                        <p class="description">林業のプロが厳選した高火力な広葉樹。一関の厳しい冬を支える、最高級のエネルギーです。</p>
-                        <ul class="specs">
-                            <li><span>樹種</span> ナラ・クヌギ等</li>
-                            <li><span>含水率</span> 20%以下（自然乾燥）</li>
-                            <li><span>受取</span> 狐禅寺拠点 または 配達</li>
-                        </ul>
-                        <a href="https://line.me/R/ti/p/@YOUR_LINE_ID" class="btn-card">在庫・価格をLINEで聞く</a>
-                    </div>
-                </div>
+<!-- LINE CTA -->
+<section class="line-cta" id="line">
+  <h2 class="line-cta-title">入荷情報・在庫確認はLINEが最速です</h2>
+  <p class="line-cta-sub">友だち登録で原木入荷情報・在庫速報をお届けします。<br>樹種・サイズのご相談もLINEで気軽にどうぞ。</p>
+  <a href="https://line.me/R/ti/p/@YOUR_LINE_ID" class="btn-line">
+    <svg class="btn-line-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.04 2 11.04c0 4.5 3.44 8.26 8.14 9.14.3.06.72-.06.83-.3.08-.18.08-.38.06-.56l-.16-.98c-.04-.24.14-.46.38-.5 4.5-.64 7.74-4.08 7.74-7.8C19 6.04 17.52 2 12 2z"/></svg>
+    LINE公式アカウントを友だち追加
+  </a>
+</section>
 
-                <!-- Product 2: Single Plank -->
-                <div class="product-card">
-                    <div class="product-img wood-placeholder-plank">
-                        <div class="product-badge secondary">在庫あり</div>
-                    </div>
-                    <div class="product-info">
-                        <h3>テーブル用一枚板<span>（未加工品）</span></h3>
-                        <p class="description">加工前の「ありのまま」を提供。DIY愛好家や工務店様向けに、自分だけの一枚に仕上げる楽しみを圧倒的低価格で。</p>
-                        <ul class="specs">
-                            <li><span>状態</span> ラフカット・未加工</li>
-                            <li><span>提供</span> プロによる素材選別済み</li>
-                            <li><span>価値</span> 仕入れ値に近い直販価格</li>
-                        </ul>
-                        <a href="https://line.me/R/ti/p/@YOUR_LINE_ID" class="btn-card">最新在庫写真をLINEで確認</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- ACCESS -->
+<section class="access">
+  <div class="sec-en">Location</div>
+  <h2 class="sec-title">拠点案内</h2>
+  <div class="access-grid">
+    <div class="access-item">
+      <div class="access-tag">メイン拠点</div>
+      <div class="access-name">狐禅寺 土場・作業場</div>
+      <div class="access-detail">
+        〒021-0002　岩手県一関市狐禅寺<br>
+        板材・薪の在庫保管・発送対応拠点
+      </div>
+      <div class="access-note">※ 現地引き取りは事前にLINEにてご連絡ください</div>
+    </div>
+    <div class="access-item">
+      <div class="access-tag">登記住所</div>
+      <div class="access-name">本店（登記）</div>
+      <div class="access-detail">
+        〒021-0005　岩手県一関市中里字沢田48<br>
+        株式会社齋藤林業
+      </div>
+      <div class="access-note">※ お問い合わせはLINEまたはメールフォームをご利用ください</div>
+    </div>
+  </div>
+</section>
 
-    <section id="flow">
-        <div class="container">
-            <div class="section-header white">
-                <h2>ORDER FLOW</h2>
-                <p>ご注文・お受け取りの流れ</p>
-            </div>
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">株式会社齋藤林業</div>
+  <ul class="footer-links">
+    <li><a href="/tokusho/">特定商取引法</a></li>
+    <li><a href="/privacy/">プライバシーポリシー</a></li>
+    <li><a href="/about/">会社紹介</a></li>
+  </ul>
+  <div class="footer-copy">© 2026 SAITO FORESTRY Co., Ltd. All rights reserved.</div>
+</footer>
 
-            <div class="flow-steps">
-                <div class="step">
-                    <div class="step-num">01</div>
-                    <div class="step-content">
-                        <h3>ご検討</h3>
-                        <p>HPやSNSで商品情報を確認。気になる素材があればLINEへ。</p>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-num">02</div>
-                    <div class="step-content">
-                        <h3>LINEでご注文</h3>
-                        <p>注文フォームまたはトークから送信。在庫状況を即座に返信します。</p>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-num">03</div>
-                    <div class="step-content">
-                        <h3>日時調整</h3>
-                        <p>引き取り日時、または弊社の自社配達日を個別に調整します。</p>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-num">04</div>
-                    <div class="step-content">
-                        <h3>お支払い・引渡し</h3>
-                        <p>現地にて商品を確認。現金、PayPay、または振込にて決済。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="line-benefit">
-        <div class="container">
-            <div class="line-box">
-                <div class="line-content">
-                    <h3>LINE公式アカウント限定<br>「最新入荷案内」</h3>
-                    <p>
-                        友だち登録いただいたお客様には、薪の入荷情報や一枚板の最新在庫など、<br>
-                        お得な情報をお届けします。
-                    </p>
-                    <a href="https://line.me/R/ti/p/@YOUR_LINE_ID" class="btn btn-line-large">今すぐ友だち登録する</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer id="access">
-        <div class="container footer-grid">
-            <div class="footer-info">
-                <h2 class="logo-footer">齋藤林業</h2>
-                <div class="contact-details">
-                    <div class="location-primary">
-                        <p class="location-label">薪販売・実働拠点</p>
-                        <p class="address">〒021-0002 岩手県一関市狐禅寺</p>
-                        <p class="search-hint">※Googleマップで「一関市 薪販売」と検索</p>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-map-group">
-                <div class="footer-map">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3083.56455171!2d141.144866!3d38.924888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f8f29e236b32873%3A0x6a0c0e7b8c8c9a3!2z6b2L5q665a-6!5e0!3m2!1sja!2sjp!4v1713500000000!5m2!1sja!2sjp"
-                        width="100%" height="350" style="border:0; border-radius: 12px;" allowfullscreen=""
-                        loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>
-                <div class="location-secondary">
-                    <p><strong>【本店】株式会社 齋藤林業</strong></p>
-                    <p>〒021-0005 岩手県一関市中里字沢田48</p>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 SAITO FORESTRY. All Rights Reserved.</p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
 </body>
-
 </html>
