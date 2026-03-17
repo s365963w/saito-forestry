@@ -11,7 +11,7 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--bark);color:var(--cream);font-family:'Zen Kaku Gothic New',sans-serif;font-weight:300;line-height:1.8;overflow-x:hidden}
-body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");opacity:.3;pointer-events:none;z-index:999}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");opacity:.3;pointer-events:none;z-index:0}
 
 /* ── NAV ── */
 
@@ -117,19 +117,19 @@ footer{background:var(--ink);padding:40px 48px;display:flex;align-items:center;j
 @media(max-width:768px){footer{padding:32px 24px}.footer-links{display:none}}
 
 /* ── NAV SHARED ── */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 48px;background:linear-gradient(to bottom,rgba(15,13,9,.92),transparent);backdrop-filter:blur(4px)}
+nav{position:fixed;top:0;left:0;right:0;z-index:150;display:flex;align-items:center;justify-content:space-between;padding:20px 48px;background:linear-gradient(to bottom,rgba(15,13,9,.92),transparent);backdrop-filter:blur(4px)}
 .nav-logo{font-family:'Shippori Mincho B1',serif;font-size:15px;font-weight:600;color:var(--gold);letter-spacing:.1em;text-decoration:none}
 .nav-links{display:flex;gap:32px;list-style:none}
 .nav-links a{color:var(--sand);text-decoration:none;font-size:12px;letter-spacing:.2em;transition:color .3s}
 .nav-links a:hover,.nav-links a.active{color:var(--gold)}
 .nav-line{display:inline-flex;align-items:center;gap:6px;background:rgba(6,199,85,.15);border:1px solid rgba(6,199,85,.3);color:#06c755;padding:6px 16px;font-size:11px;letter-spacing:.15em;text-decoration:none;transition:all .3s;white-space:nowrap}
 .nav-line:hover{background:rgba(6,199,85,.25)}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;position:relative;z-index:160}
 .hamburger span{display:block;width:22px;height:1.5px;background:var(--gold);transition:all .3s}
 .hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
 .hamburger.open span:nth-child(2){opacity:0}
 .hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
-.mobile-menu{display:none;position:fixed;inset:0;background:rgba(15,13,9,.97);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:0}
+.mobile-menu{display:none;position:fixed;inset:0;background:rgba(15,13,9,.97);z-index:200;flex-direction:column;align-items:center;justify-content:center;gap:0}
 .mobile-menu.open{display:flex}
 .mobile-menu a{color:var(--sand);text-decoration:none;font-family:'Shippori Mincho B1',serif;font-size:22px;font-weight:600;letter-spacing:.12em;padding:20px 0;border-bottom:1px solid rgba(200,160,80,.1);width:240px;text-align:center;transition:color .3s}
 .mobile-menu a:last-child{border-bottom:none}
