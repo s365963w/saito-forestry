@@ -13,139 +13,35 @@ html{scroll-behavior:smooth}
 body{background:var(--bark);color:var(--cream);font-family:'Zen Kaku Gothic New',sans-serif;font-weight:300;line-height:1.8;overflow-x:hidden}
 body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");opacity:.3;pointer-events:none;z-index:0}
 
+@media(max-width:860px){
+  }
+
 /* ── NAV ── */
-
-/* ── HERO ── */
-.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;padding:120px 48px 80px}
-.hero-rings{position:absolute;right:-10%;top:50%;transform:translateY(-50%);width:700px;height:700px;opacity:.07}
-.hero-rings circle{fill:none;stroke:var(--gold)}
-.hero-vline{position:absolute;left:48px;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,transparent,rgba(200,160,80,.3),transparent)}
-.hero-content{max-width:700px;position:relative;z-index:2;animation:heroIn 1.2s ease both}
-@keyframes heroIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
-.eyebrow{display:flex;align-items:center;gap:16px;margin-bottom:28px}
-.eyebrow-line{width:40px;height:1px;background:var(--gold)}
-.eyebrow span{font-size:11px;letter-spacing:.35em;color:var(--gold);text-transform:uppercase}
-.hero-title{font-family:'Shippori Mincho B1',serif;font-size:clamp(38px,5.5vw,66px);font-weight:800;line-height:1.2;color:var(--cream);margin-bottom:12px}
-.hero-title em{font-style:normal;color:var(--gold)}
-.hero-sub{font-family:'Shippori Mincho B1',serif;font-size:clamp(14px,2vw,17px);color:var(--sand);letter-spacing:.1em;margin-bottom:28px;line-height:2}
-.hero-desc{font-size:14px;color:var(--muted);max-width:460px;line-height:2.1;margin-bottom:48px}
-.cta-row{display:flex;gap:16px;flex-wrap:wrap}
-.btn-p{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--gold),#a07030);color:var(--ink);text-decoration:none;font-family:'Shippori Mincho B1',serif;font-size:14px;font-weight:600;letter-spacing:.15em;padding:16px 36px;transition:all .3s}
-.btn-p:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(200,160,80,.35)}
-.btn-s{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(200,160,80,.35);color:var(--sand);text-decoration:none;font-size:13px;letter-spacing:.15em;padding:16px 32px;transition:all .3s}
-.btn-s:hover{border-color:var(--gold);color:var(--gold)}
-.hero-stats{position:absolute;right:80px;bottom:80px;display:flex;gap:48px;z-index:2;animation:heroIn 1.2s ease .3s both}
-.stat-num{font-family:'Shippori Mincho B1',serif;font-size:36px;font-weight:800;color:var(--gold);line-height:1;margin-bottom:6px}
-.stat-label{font-size:11px;letter-spacing:.15em;color:var(--muted)}
-@media(max-width:768px){.hero{padding:100px 24px 80px}.hero-stats{display:none}}
-
-/* ── SECTION SHARED ── */
-section{padding:100px 48px}
-.sec-en{font-size:11px;letter-spacing:.35em;color:var(--gold);text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:14px}
-.sec-en::before{content:'';display:block;width:32px;height:1px;background:var(--gold)}
-.sec-title{font-family:'Shippori Mincho B1',serif;font-size:clamp(24px,3.5vw,36px);font-weight:800;color:var(--cream);letter-spacing:.03em;line-height:1.4;margin-bottom:48px}
-@media(max-width:768px){section{padding:64px 24px}}
-
-/* ── SERVICES（3事業の導線カード）── */
-.services{background:var(--earth)}
-.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;max-width:1100px}
-.svc-card{position:relative;padding:48px 36px;background:rgba(245,234,214,.03);border:1px solid rgba(200,160,80,.1);text-decoration:none;transition:all .35s;overflow:hidden;display:block}
-.svc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(to right,transparent,var(--gold),transparent);opacity:0;transition:opacity .3s}
-.svc-card:hover{background:rgba(245,234,214,.07);border-color:rgba(200,160,80,.3);transform:translateY(-4px)}
-.svc-card:hover::before{opacity:1}
-.svc-card.main{background:rgba(200,160,80,.07);border-color:rgba(200,160,80,.3)}
-.svc-card.main::before{opacity:.5}
-.svc-badge{display:inline-block;font-size:10px;letter-spacing:.2em;padding:3px 10px;border:1px solid rgba(200,160,80,.4);color:var(--gold);margin-bottom:20px}
-.svc-badge.new{border-color:rgba(232,93,58,.5);color:var(--rare2)}
-.svc-num{font-family:'Shippori Mincho B1',serif;font-size:48px;font-weight:800;color:rgba(200,160,80,.15);line-height:1;margin-bottom:16px}
-.svc-title{font-family:'Shippori Mincho B1',serif;font-size:22px;font-weight:800;color:var(--cream);margin-bottom:12px;letter-spacing:.03em}
-.svc-body{font-size:13px;color:var(--sand);line-height:2;margin-bottom:24px}
-.svc-link{font-size:12px;letter-spacing:.2em;color:var(--gold);display:flex;align-items:center;gap:8px}
-.svc-link::after{content:'→';transition:transform .3s}
-.svc-card:hover .svc-link::after{transform:translateX(4px)}
-@media(max-width:768px){.svc-grid{grid-template-columns:1fr}}
-
-/* ── PHILOSOPHY ── */
-.philosophy{background:var(--moss);position:relative;overflow:hidden}
-.philosophy::before{content:'林';position:absolute;right:-40px;top:-40px;font-family:'Shippori Mincho B1',serif;font-size:360px;font-weight:800;color:rgba(200,160,80,.04);line-height:1;pointer-events:none}
-.phil-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;max-width:1100px}
-.phil-lead{font-family:'Shippori Mincho B1',serif;font-size:clamp(17px,2.5vw,24px);font-weight:600;color:var(--cream);line-height:1.9;margin-bottom:24px}
-.phil-body{font-size:14px;color:var(--sand);line-height:2.2}
-.pillars{display:flex;flex-direction:column;gap:24px;padding-top:12px}
-.pillar{display:flex;gap:20px;align-items:flex-start;padding:22px;background:rgba(245,234,214,.04);border-left:2px solid var(--gold);transition:background .3s}
-.pillar:hover{background:rgba(245,234,214,.07)}
-.p-num{font-family:'Shippori Mincho B1',serif;font-size:28px;font-weight:800;color:rgba(200,160,80,.3);line-height:1;flex-shrink:0;width:36px}
-.p-title{font-family:'Shippori Mincho B1',serif;font-size:15px;font-weight:600;color:var(--gold);margin-bottom:5px}
-.p-body{font-size:13px;color:var(--sand);line-height:1.9}
-@media(max-width:768px){.phil-grid{grid-template-columns:1fr;gap:48px}}
-
-/* ── LINE CTA ── */
-.line-cta{background:var(--earth);text-align:center;padding:80px 48px}
-.line-cta-title{font-family:'Shippori Mincho B1',serif;font-size:clamp(20px,3vw,30px);font-weight:800;color:var(--cream);margin-bottom:14px;letter-spacing:.04em}
-.line-cta-sub{font-size:14px;color:var(--muted);margin-bottom:40px;line-height:2}
-.btn-line{display:inline-flex;align-items:center;gap:12px;background:#06c755;color:#fff;text-decoration:none;font-family:'Shippori Mincho B1',serif;font-size:15px;font-weight:600;letter-spacing:.15em;padding:18px 48px;transition:all .3s}
-.btn-line:hover{background:#05a847;transform:translateY(-2px)}
-.btn-line-icon{width:22px;height:22px;fill:#fff}
-
-/* ── TRUST ── */
-.trust{background:var(--bark)}
-.trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;max-width:1100px}
-.trust-card{padding:32px 24px;background:rgba(245,234,214,.03);border:1px solid rgba(200,160,80,.08);text-align:center}
-.trust-num{font-family:'Shippori Mincho B1',serif;font-size:40px;font-weight:800;color:var(--gold);line-height:1;margin-bottom:8px}
-.trust-unit{font-size:14px;color:var(--gold)}
-.trust-label{font-size:12px;color:var(--muted);letter-spacing:.1em;margin-top:4px}
-@media(max-width:768px){.trust-grid{grid-template-columns:repeat(2,1fr)}}
-
-/* ── ACCESS ── */
-.access{background:var(--moss)}
-.access-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;max-width:1000px;align-items:start}
-.access-item{padding:28px 32px;background:rgba(245,234,214,.04);border:1px solid rgba(200,160,80,.12)}
-.access-tag{font-size:10px;letter-spacing:.25em;color:var(--gold);margin-bottom:10px;display:flex;align-items:center;gap:8px}
-.access-tag::before{content:'';display:block;width:16px;height:1px;background:var(--gold)}
-.access-name{font-family:'Shippori Mincho B1',serif;font-size:16px;font-weight:600;color:var(--cream);margin-bottom:12px}
-.access-detail{font-size:13px;color:var(--sand);line-height:2}
-.access-note{font-size:12px;color:var(--muted);margin-top:10px;line-height:1.8}
-@media(max-width:768px){.access-grid{grid-template-columns:1fr}}
-
-/* ── FOOTER ── */
-footer{background:var(--ink);padding:40px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
-.footer-logo{font-family:'Shippori Mincho B1',serif;font-size:14px;color:var(--gold);letter-spacing:.1em}
-.footer-links{display:flex;gap:24px;list-style:none}
-.footer-links a{font-size:11px;color:var(--muted);text-decoration:none;letter-spacing:.1em;transition:color .3s}
-.footer-links a:hover{color:var(--sand)}
-.footer-copy{font-size:11px;color:var(--muted);letter-spacing:.1em}
-@media(max-width:768px){footer{padding:32px 24px}.footer-links{display:none}}
-
-/* ── NAV SHARED ── */
-nav{position:fixed;top:0;left:0;right:0;z-index:150;display:flex;align-items:center;justify-content:space-between;padding:20px 48px;background:linear-gradient(to bottom,rgba(15,13,9,.92),transparent);backdrop-filter:blur(4px)}
+nav{position:fixed;top:0;left:0;right:0;z-index:150;display:flex;align-items:center;justify-content:space-between;padding:20px 48px;background:linear-gradient(to bottom,rgba(15,13,9,.95),transparent);backdrop-filter:blur(4px)}
 .nav-logo{font-family:'Shippori Mincho B1',serif;font-size:15px;font-weight:600;color:var(--gold);letter-spacing:.1em;text-decoration:none}
 .nav-links{display:flex;gap:32px;list-style:none}
 .nav-links a{color:var(--sand);text-decoration:none;font-size:12px;letter-spacing:.2em;transition:color .3s}
 .nav-links a:hover,.nav-links a.active{color:var(--gold)}
-.nav-line{display:inline-flex;align-items:center;gap:6px;background:rgba(6,199,85,.15);border:1px solid rgba(6,199,85,.3);color:#06c755;padding:6px 16px;font-size:11px;letter-spacing:.15em;text-decoration:none;transition:all .3s;white-space:nowrap}
-.nav-line:hover{background:rgba(6,199,85,.25)}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;position:relative;z-index:160}
-.hamburger span{display:block;width:22px;height:1.5px;background:var(--gold);transition:all .3s}
-.hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
-.hamburger.open span:nth-child(2){opacity:0}
-.hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
-.mobile-menu{display:none;position:fixed;inset:0;background:rgba(15,13,9,.97);z-index:200;flex-direction:column;align-items:center;justify-content:center;gap:0}
-.mobile-menu.open{display:flex}
-.mobile-menu a{color:var(--sand);text-decoration:none;font-family:'Shippori Mincho B1',serif;font-size:22px;font-weight:600;letter-spacing:.12em;padding:20px 0;border-bottom:1px solid rgba(200,160,80,.1);width:240px;text-align:center;transition:color .3s}
-.mobile-menu a:last-child{border-bottom:none}
-.mobile-menu a:hover{color:var(--gold)}
-.mobile-menu .m-line{margin-top:24px;display:inline-flex;align-items:center;gap:8px;background:rgba(6,199,85,.15);border:1px solid rgba(6,199,85,.3);color:#06c755;padding:14px 32px;font-size:14px;letter-spacing:.15em;font-family:'Zen Kaku Gothic New',sans-serif}
+.nav-cta{display:inline-flex;align-items:center;background:rgba(6,199,85,.15);border:1px solid rgba(6,199,85,.3);color:#06c755;padding:7px 18px;font-size:11px;letter-spacing:.15em;text-decoration:none;white-space:nowrap;transition:background .2s}
+.nav-cta:hover{background:rgba(6,199,85,.28)}
+.hbg{display:none;flex-direction:column;justify-content:center;gap:6px;cursor:pointer;padding:8px;background:none;border:none;width:40px;height:40px;-webkit-tap-highlight-color:transparent}
+.hbg span{display:block;width:22px;height:2px;background:var(--gold);border-radius:1px;transition:all .3s;pointer-events:none}
+.hbg.open span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.hbg.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hbg.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+.mmenu{visibility:hidden;opacity:0;position:fixed;inset:0;background:rgba(15,13,9,.97);z-index:200;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;transition:opacity .25s,visibility .25s}
+.mmenu.open{visibility:visible;opacity:1}
+.mmenu a{color:var(--sand);text-decoration:none;font-family:'Shippori Mincho B1',serif;font-size:22px;font-weight:600;letter-spacing:.12em;padding:20px 0;border-bottom:1px solid rgba(200,160,80,.12);width:260px;text-align:center;transition:color .2s;-webkit-tap-highlight-color:transparent}
+.mmenu a.active,.mmenu a:hover{color:var(--gold)}
+.mmenu .mmenu-line{margin-top:28px;padding:14px 40px;background:rgba(6,199,85,.15);border:1px solid rgba(6,199,85,.3);color:#06c755;font-size:14px;letter-spacing:.15em;font-family:'Zen Kaku Gothic New',sans-serif;border-bottom:none;width:auto}
 @media(max-width:860px){
-  .nav-links,.nav-line{display:none}
-  .hamburger{display:flex}
+  .nav-links,.nav-cta{display:none!important}
+  .hbg{display:flex}
   nav{padding:16px 24px}
 }
-
 </style>
 </head>
 <body>
-
-<!-- NAV -->
 <nav>
   <a href="index.html" class="nav-logo">齋藤林業</a>
   <ul class="nav-links">
@@ -154,16 +50,20 @@ nav{position:fixed;top:0;left:0;right:0;z-index:150;display:flex;align-items:cen
     <li><a href="maki.html">薪</a></li>
     <li><a href="about.html">会社紹介</a></li>
   </ul>
-  <a href="https://line.me/R/ti/p/@YOUR_LINE_ID" class="nav-line" target="_blank">LINEで相談</a>
-  <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+  <a href="https://line.me/R/ti/p/@YOUR_LINE_ID" class="nav-cta" target="_blank">LINEで相談</a>
+  <button class="hbg" id="hbg" aria-label="メニュー">
     <span></span><span></span><span></span>
   </button>
 </nav>
-<div class="mobile-menu" id="mobile-menu">
-  <a href="index.html" class=active onclick="toggleMenu()">無垢材を注文</a><a href="stock.html" onclick="toggleMenu()">在庫板材</a><a href="maki.html" onclick="toggleMenu()">薪</a><a href="about.html" onclick="toggleMenu()">会社紹介</a>
-  <a href="https://line.me/R/ti/p/@YOUR_LINE_ID" class="m-line" target="_blank">LINEで相談</a>
+<div class="mmenu" id="mmenu" role="dialog" aria-modal="true">
+  <a href="index.html" class="active">無垢材を注文</a>
+  <a href="stock.html">在庫板材</a>
+  <a href="maki.html">薪</a>
+  <a href="about.html">会社紹介</a>
+  <a href="https://line.me/R/ti/p/@YOUR_LINE_ID" class="mmenu-line" target="_blank">LINEで相談</a>
 </div>
 
+<!-- NAV -->
 <!-- HERO -->
 <section class="hero">
   <div class="hero-vline"></div>
@@ -339,5 +239,32 @@ nav{position:fixed;top:0;left:0;right:0;z-index:150;display:flex;align-items:cen
   <div class="footer-copy">© 2026 SAITO FORESTRY Co., Ltd. All rights reserved.</div>
 </footer>
 
+<script>
+(function(){
+  var btn=document.getElementById('hbg');
+  var menu=document.getElementById('mmenu');
+  if(!btn||!menu)return;
+  function open(){
+    btn.classList.add('open');
+    menu.classList.add('open');
+    document.body.style.overflow='hidden';
+  }
+  function close(){
+    btn.classList.remove('open');
+    menu.classList.remove('open');
+    document.body.style.overflow='';
+  }
+  btn.addEventListener('click',function(e){
+    e.stopPropagation();
+    menu.classList.contains('open')?close():open();
+  });
+  menu.addEventListener('click',function(e){
+    if(e.target===menu)close();
+  });
+  document.querySelectorAll('.mmenu a').forEach(function(a){
+    a.addEventListener('click',close);
+  });
+})();
+</script>
 </body>
 </html>
